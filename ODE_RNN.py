@@ -25,13 +25,16 @@ class ODE_RNN(nn.Module):
 		self.param = param
 		self.ode_func = ODE_Func(self.param)
 		self.rnn_cell = nn.GRU(input_size = 1, hidden_size = param['OR_hidden_size'], batch_first = True)
-		self.h0 = torch.zeros(self.param['OR_hidden_size'])
+		self.h0 = torch.zeros(self.param['batch_size'], self.param['OR_hidden_size'], device = self.param['device'])
 		
-	def forward(self, input):
-		x = input	# (batch_size, obs_points, 2)
-		hp = odeint(self.ode_func, self.h0, torch.tensor([0.0, x[0, 0, 0]]))
-		_, h = self.rnn_cell(x[:, 0, 1].reshape(self.param['batch_size'], 1, 1))
-		for i in range(1, x.shape[1]):
-			hp = odeint(self.ode_func, h, torch.tensor([x[0, i - 1, 0], x[0, i, 0]]))
-			_, h = self.rnn_cell(x[:, i, 1].reshape(self.param['batch_size'], 1, 1), hp[1].reshape(self.param['batch_size'], 1, self.param['OR_hidden_size']))
-		return h
+	def forward(self, batch, mask):
+		b = batch	# (batch_size, num_points, 2)
+		m = mask
+		hp = odeint(self.ode_func, self.h0, torch.tensor([0.0, b[0, 0, 0]], device = self.param['device']))[1]
+		_, ht = self.rnn_cell(b[:, 0, 1].reshape(self.param['batch_size'], 1, 1), hp.reshape(1, self.param['batch_size'], self.param['OR_hidden_size']))
+		h = torch.mul(m[:, 0].reshape(-1, 1), ht) + torch.mul(1 - m[:, 0].reshape(-1, 1), hp)
+		for i in range(1, b.shape[1]):
+			hp = odeint(self.ode_func, h, torch.tensor([b[0, i - 1, 0], b[0, i, 0]], device = self.param['device']))[1]
+			_, ht = self.rnn_cell(b[:, i, 1].reshape(self.param['batch_size'], 1, 1), hp.reshape(1, self.param['batch_size'], self.param['OR_hidden_size']))
+			h = torch.mul(m[:, i].reshape(-1, 1), ht) + torch.mul(1 - m[:, i].reshape(-1, 1), hp)
+		return h[0]
