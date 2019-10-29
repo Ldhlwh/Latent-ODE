@@ -9,13 +9,13 @@ from Latent_ODE import Latent_ODE
 from toy_sample import sample
 
 param = {
-	'resample': True,
+	'resample': False,
 	'num_seq': 800,
 	'test_num_seq': 200,
 	'num_point_in_seq': 100,
 	'obs_points': 30,
 	'total_points': 100,
-	'batch_size': 50,
+	'batch_size': 50, 
 	
 	# ODE_Func
 	'OF_layer_dim': 100,
@@ -30,7 +30,7 @@ param = {
 	
 	# Hyperparam
 	'num_iter': 20,
-	'lr': 0.001,
+	'lr': 1e-4,
 	
 	'device': torch.device('cpu'),
 }
@@ -43,21 +43,22 @@ if param['resample']:
 	sample(param, 'train')
 	sample(param, 'test')
 
-bg = BatchGenerator(param['batch_size'])
-test_batch = np.load('toy_test.npy')
+bg = BatchGenerator(param['batch_size'], 'train')
+tbg = BatchGenerator(param['batch_size'], 'test')
 
 model = Latent_ODE(param).to(param['device'])
-optimizer = torch.optim.Adamax(model.parameters(), lr = param['lr'])
+optimizer = torch.optim.RMSprop(model.parameters(), lr = param['lr'])
 loss_func = torch.nn.MSELoss()
 
 for iter in range(param['num_iter']):
-	print('Iter: %4d' % iter)
+	print('Iter: %d' % iter)
 	model.train()
+	print('\tTrain:')
 	bg.rewind()
 	ll = []
 	bn = 0
 	while bg.has_next_batch():
-		#tic = time.time()
+		tic = time.time()
 		batch = bg.next_batch()
 		b_train, m_train = make_batch_mask(batch[:, 0:param['obs_points'], :], param)
 		b_test, m_test = make_batch_mask(batch[:, param['obs_points']:, :], param)
@@ -77,24 +78,36 @@ for iter in range(param['num_iter']):
 		#print('Forward finished in %.2f sec' % (tac - tec))
 		loss.backward()
 		optimizer.step()
-		print('\tBatch: %4d | Loss: %f' % (bn, loss.item()))
+		toc = time.time()
+		print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
 		bn += 1
-		#toc = time.time()
-		#print('Backward finished in %.2f sec' % (toc - tac))
 		
-	avg_loss = np.mean(ll)
+	train_avg_loss = np.mean(ll)
 	
 	model.eval()
+	print('\tTest:')
 	with torch.no_grad():
-		b_train, m_train = make_batch_mask(test_batch[:, 0:param['obs_points'], :], param)
-		b_test, m_test = make_batch_mask(test_batch[:, param['obs_points']:, :], param)
-		t0_test = b_train[0, -1, 0]
-		input_tuple = (b_train, m_train, b_test, m_test, t0_test)
-		
-		output = model.forward(input_tuple)
-		masked_output = output[m_test.bool()]
-		target = torch.tensor(batch[:, param['obs_points']:, 1].flatten(), device = param['device'])
-		loss = loss_func(masked_output, target)
-		
-		print('Average Train Loss: %f | Test Loss: %f\n' % (avg_loss, loss))
+		tbg.rewind()
+		ll = []
+		bn = 0
+		while tbg.has_next_batch():
+			tic = time.time()
+			test_batch = tbg.next_batch()
+			b_train, m_train = make_batch_mask(test_batch[:, 0:param['obs_points'], :], param)
+			b_test, m_test = make_batch_mask(test_batch[:, param['obs_points']:, :], param)
+			t0_test = b_train[0, -1, 0]
+			input_tuple = (b_train, m_train, b_test, m_test, t0_test)
+			
+			output = model.forward(input_tuple)
+			masked_output = output[m_test.bool()]
+			target = torch.tensor(batch[:, param['obs_points']:, 1].flatten(), device = param['device'])
+			loss = loss_func(masked_output, target)
+			ll.append(loss.item())
+			
+			toc = time.time()
+			print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
+			bn += 1
+			
+		test_avg_loss = np.mean(ll)
+		print('Train Loss: %f | Test Loss: %f\n' % (train_avg_loss, test_avg_loss))
 		

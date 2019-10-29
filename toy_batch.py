@@ -2,8 +2,11 @@ import numpy as np
 
 class BatchGenerator:
 	
-	def __init__(self, batch_size):
-		self.data = np.load('toy_data.npy')
+	def __init__(self, batch_size, type):
+		if type == 'train':
+			self.data = np.load('toy_data.npy')
+		elif type == 'test':
+			self.data = np.load('toy_test.npy')
 		np.random.shuffle(self.data)
 		self.length = self.data.shape[0]
 		self.cur = 0
