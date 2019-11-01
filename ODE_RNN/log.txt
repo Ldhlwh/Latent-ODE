@@ -1,0 +1,244 @@
+Train on cpu
+Check on train data passed
+Check on test data passed
+Iter: 0
+        Train:
+        Batch:    0 | LL: -24.729744 | MSE: 0.522268 | Time: 62.60 sec
+        Batch:    1 | LL: -33.339291 | MSE: 0.694459 | Time: 59.88 sec
+        Batch:    2 | LL: -23.656137 | MSE: 0.500796 | Time: 60.09 sec
+        Batch:    3 | LL: -24.842199 | MSE: 0.524517 | Time: 59.64 sec
+        Batch:    4 | LL: -23.751392 | MSE: 0.502701 | Time: 59.99 sec
+        Batch:    5 | LL: -22.669806 | MSE: 0.481069 | Time: 60.45 sec
+        Batch:    6 | LL: -22.880335 | MSE: 0.485280 | Time: 60.15 sec
+        Batch:    7 | LL: -23.035131 | MSE: 0.488376 | Time: 60.33 sec
+        Batch:    8 | LL: -23.084959 | MSE: 0.489372 | Time: 60.13 sec
+        Batch:    9 | LL: -22.399006 | MSE: 0.475653 | Time: 60.13 sec
+        Batch:   10 | LL: -21.586145 | MSE: 0.459396 | Time: 59.90 sec
+        Batch:   11 | LL: -21.441256 | MSE: 0.456498 | Time: 60.21 sec
+        Batch:   12 | LL: -21.094627 | MSE: 0.449566 | Time: 60.09 sec
+        Batch:   13 | LL: -20.332535 | MSE: 0.434324 | Time: 60.04 sec
+        Batch:   14 | LL: -19.285212 | MSE: 0.413377 | Time: 60.19 sec
+        Batch:   15 | LL: -17.970209 | MSE: 0.387077 | Time: 60.28 sec
+        Test:
+        Batch:    0 | LL: -15.996252 | MSE: 0.347598 | Time: 16.68 sec
+        Batch:    1 | LL: -15.937871 | MSE: 0.346430 | Time: 14.88 sec
+        Batch:    2 | LL: -16.090954 | MSE: 0.349492 | Time: 14.76 sec
+        Batch:    3 | LL: -16.591713 | MSE: 0.359507 | Time: 14.75 sec
+Iter: 1
+        Train:
+        Batch:    0 | LL: -15.976128 | MSE: 0.347195 | Time: 57.30 sec
+        Batch:    1 | LL: -13.642121 | MSE: 0.300515 | Time: 59.11 sec
+        Batch:    2 | LL: -15.829365 | MSE: 0.344260 | Time: 59.52 sec
+        Batch:    3 | LL: -13.771018 | MSE: 0.303093 | Time: 60.29 sec
+        Batch:    4 | LL: -16.498026 | MSE: 0.357633 | Time: 60.35 sec
+        Batch:    5 | LL: -10.528808 | MSE: 0.238249 | Time: 58.95 sec
+        Batch:    6 | LL: -11.823883 | MSE: 0.264151 | Time: 59.13 sec
+        Batch:    7 | LL: -11.917052 | MSE: 0.266014 | Time: 59.22 sec
+        Batch:    8 | LL: -12.263611 | MSE: 0.272945 | Time: 58.55 sec
+        Batch:    9 | LL: -11.609204 | MSE: 0.259857 | Time: 58.96 sec
+        Batch:   10 | LL: -11.256850 | MSE: 0.252810 | Time: 59.28 sec
+        Batch:   11 | LL: -10.663122 | MSE: 0.240935 | Time: 58.73 sec
+        Batch:   12 | LL: -10.371303 | MSE: 0.235099 | Time: 58.83 sec
+        Batch:   13 | LL: -10.244960 | MSE: 0.232572 | Time: 60.24 sec
+        Batch:   14 | LL: -11.201534 | MSE: 0.251704 | Time: 59.54 sec
+        Batch:   15 | LL: -9.006089 | MSE: 0.207795 | Time: 59.53 sec
+        Test:
+        Batch:    0 | LL: -9.583645 | MSE: 0.219346 | Time: 16.22 sec
+        Batch:    1 | LL: -10.212849 | MSE: 0.231930 | Time: 14.25 sec
+        Batch:    2 | LL: -9.522421 | MSE: 0.218121 | Time: 14.25 sec
+        Batch:    3 | LL: -10.963436 | MSE: 0.246942 | Time: 14.17 sec
+Iter: 2
+        Train:
+        Batch:    0 | LL: -9.503297 | MSE: 0.217739 | Time: 56.83 sec
+        Batch:    1 | LL: -9.925040 | MSE: 0.226174 | Time: 58.00 sec
+        Batch:    2 | LL: -9.594983 | MSE: 0.219573 | Time: 59.00 sec
+        Batch:    3 | LL: -10.164074 | MSE: 0.230954 | Time: 60.74 sec
+        Batch:    4 | LL: -8.145943 | MSE: 0.190592 | Time: 62.52 sec
+        Batch:    5 | LL: -8.922887 | MSE: 0.206131 | Time: 59.98 sec
+        Batch:    6 | LL: -9.448250 | MSE: 0.216638 | Time: 60.22 sec
+        Batch:    7 | LL: -10.256421 | MSE: 0.232801 | Time: 60.38 sec
+        Batch:    8 | LL: -7.826813 | MSE: 0.184209 | Time: 60.00 sec
+        Batch:    9 | LL: -8.877050 | MSE: 0.205214 | Time: 60.23 sec
+        Batch:   10 | LL: -8.321112 | MSE: 0.194095 | Time: 60.41 sec
+        Batch:   11 | LL: -8.431068 | MSE: 0.196294 | Time: 61.55 sec
+        Batch:   12 | LL: -8.033896 | MSE: 0.188351 | Time: 62.87 sec
+        Batch:   13 | LL: -10.629801 | MSE: 0.240269 | Time: 67.94 sec
+        Batch:   14 | LL: -10.942745 | MSE: 0.246528 | Time: 62.06 sec
+        Batch:   15 | LL: -8.363420 | MSE: 0.194941 | Time: 75.51 sec
+        Test:
+        Batch:    0 | LL: -8.118610 | MSE: 0.190045 | Time: 17.52 sec
+        Batch:    1 | LL: -8.166689 | MSE: 0.191007 | Time: 16.41 sec
+        Batch:    2 | LL: -9.156027 | MSE: 0.210794 | Time: 15.03 sec
+        Batch:    3 | LL: -8.180392 | MSE: 0.191281 | Time: 15.17 sec
+Iter: 3
+        Train:
+        Batch:    0 | LL: -7.224215 | MSE: 0.172157 | Time: 58.19 sec
+        Batch:    1 | LL: -8.560482 | MSE: 0.198883 | Time: 60.64 sec
+        Batch:    2 | LL: -8.237555 | MSE: 0.192424 | Time: 60.81 sec
+        Batch:    3 | LL: -7.085173 | MSE: 0.169376 | Time: 66.36 sec
+        Batch:    4 | LL: -8.238493 | MSE: 0.192443 | Time: 59.41 sec
+        Batch:    5 | LL: -8.980681 | MSE: 0.207287 | Time: 59.45 sec
+        Batch:    6 | LL: -7.574843 | MSE: 0.179170 | Time: 59.61 sec
+        Batch:    7 | LL: -7.324029 | MSE: 0.174154 | Time: 62.48 sec
+        Batch:    8 | LL: -8.492040 | MSE: 0.197514 | Time: 62.00 sec
+        Batch:    9 | LL: -8.489628 | MSE: 0.197466 | Time: 62.62 sec
+        Batch:   10 | LL: -6.897851 | MSE: 0.165630 | Time: 60.93 sec
+        Batch:   11 | LL: -7.626312 | MSE: 0.180199 | Time: 63.22 sec
+        Batch:   12 | LL: -7.741234 | MSE: 0.182498 | Time: 63.42 sec
+        Batch:   13 | LL: -7.266474 | MSE: 0.173002 | Time: 60.64 sec
+        Batch:   14 | LL: -7.019444 | MSE: 0.168062 | Time: 65.42 sec
+        Batch:   15 | LL: -6.813092 | MSE: 0.163935 | Time: 63.44 sec
+        Test:
+        Batch:    0 | LL: -6.578364 | MSE: 0.159240 | Time: 18.14 sec
+        Batch:    1 | LL: -6.769082 | MSE: 0.163055 | Time: 15.82 sec
+        Batch:    2 | LL: -7.685725 | MSE: 0.181387 | Time: 15.86 sec
+        Batch:    3 | LL: -6.282445 | MSE: 0.153322 | Time: 16.14 sec
+Iter: 4
+        Train:
+        Batch:    0 | LL: -6.776978 | MSE: 0.163212 | Time: 64.98 sec
+        Batch:    1 | LL: -6.306578 | MSE: 0.153805 | Time: 60.35 sec
+        Batch:    2 | LL: -5.461854 | MSE: 0.136910 | Time: 60.15 sec
+        Batch:    3 | LL: -6.440852 | MSE: 0.156490 | Time: 63.77 sec
+        Batch:    4 | LL: -7.231899 | MSE: 0.172311 | Time: 62.43 sec
+        Batch:    5 | LL: -5.646475 | MSE: 0.140602 | Time: 59.86 sec
+        Batch:    6 | LL: -4.813740 | MSE: 0.123948 | Time: 59.43 sec
+        Batch:    7 | LL: -6.133385 | MSE: 0.150341 | Time: 60.15 sec
+        Batch:    8 | LL: -6.745559 | MSE: 0.162584 | Time: 60.00 sec
+        Batch:    9 | LL: -6.891716 | MSE: 0.165507 | Time: 74.16 sec
+        Batch:   10 | LL: -6.411223 | MSE: 0.155897 | Time: 61.17 sec
+        Batch:   11 | LL: -6.752358 | MSE: 0.162720 | Time: 62.14 sec
+        Batch:   12 | LL: -6.663032 | MSE: 0.160934 | Time: 59.99 sec
+        Batch:   13 | LL: -5.575068 | MSE: 0.139174 | Time: 67.53 sec
+        Batch:   14 | LL: -6.436575 | MSE: 0.156404 | Time: 62.92 sec
+        Batch:   15 | LL: -7.125889 | MSE: 0.170191 | Time: 60.29 sec
+        Test:
+        Batch:    0 | LL: -5.882645 | MSE: 0.145326 | Time: 16.42 sec
+        Batch:    1 | LL: -8.136515 | MSE: 0.190403 | Time: 15.27 sec
+        Batch:    2 | LL: -6.139656 | MSE: 0.150466 | Time: 15.40 sec
+        Batch:    3 | LL: -7.846340 | MSE: 0.184600 | Time: 15.16 sec
+Iter: 5
+        Train:
+        Batch:    0 | LL: -7.994224 | MSE: 0.187557 | Time: 57.47 sec
+        Batch:    1 | LL: -7.774691 | MSE: 0.183167 | Time: 63.59 sec
+        Batch:    2 | LL: -7.459036 | MSE: 0.176854 | Time: 65.94 sec
+        Batch:    3 | LL: -5.864843 | MSE: 0.144970 | Time: 59.73 sec
+        Batch:    4 | LL: -6.171936 | MSE: 0.151112 | Time: 60.09 sec
+        Batch:    5 | LL: -5.489103 | MSE: 0.137455 | Time: 60.04 sec
+        Batch:    6 | LL: -7.308580 | MSE: 0.173845 | Time: 60.45 sec
+        Batch:    7 | LL: -6.948384 | MSE: 0.166641 | Time: 60.29 sec
+        Batch:    8 | LL: -5.668980 | MSE: 0.141053 | Time: 60.95 sec
+        Batch:    9 | LL: -6.396415 | MSE: 0.155601 | Time: 60.30 sec
+        Batch:   10 | LL: -7.300190 | MSE: 0.173677 | Time: 60.02 sec
+        Batch:   11 | LL: -4.871938 | MSE: 0.125112 | Time: 60.03 sec
+        Batch:   12 | LL: -5.093366 | MSE: 0.129540 | Time: 60.24 sec
+        Batch:   13 | LL: -5.924163 | MSE: 0.146156 | Time: 60.03 sec
+        Batch:   14 | LL: -5.310890 | MSE: 0.133891 | Time: 60.19 sec
+        Batch:   15 | LL: -6.923705 | MSE: 0.166147 | Time: 60.13 sec
+        Test:
+        Batch:    0 | LL: -4.949919 | MSE: 0.126671 | Time: 16.46 sec
+        Batch:    1 | LL: -6.393484 | MSE: 0.155543 | Time: 14.78 sec
+        Batch:    2 | LL: -5.771759 | MSE: 0.143108 | Time: 14.93 sec
+        Batch:    3 | LL: -6.146565 | MSE: 0.150604 | Time: 14.89 sec
+Iter: 6
+        Train:
+        Batch:    0 | LL: -6.085475 | MSE: 0.149382 | Time: 57.92 sec
+        Batch:    1 | LL: -6.714809 | MSE: 0.161969 | Time: 58.66 sec
+        Batch:    2 | LL: -5.343718 | MSE: 0.134547 | Time: 59.04 sec
+        Batch:    3 | LL: -4.748085 | MSE: 0.122635 | Time: 59.47 sec
+        Batch:    4 | LL: -6.471695 | MSE: 0.157107 | Time: 59.86 sec
+        Batch:    5 | LL: -6.334802 | MSE: 0.154369 | Time: 60.50 sec
+        Batch:    6 | LL: -6.086170 | MSE: 0.149396 | Time: 59.14 sec
+        Batch:    7 | LL: -5.118679 | MSE: 0.130047 | Time: 58.85 sec
+        Batch:    8 | LL: -4.634943 | MSE: 0.120372 | Time: 58.94 sec
+        Batch:    9 | LL: -5.420135 | MSE: 0.136076 | Time: 63.18 sec
+        Batch:   10 | LL: -5.662084 | MSE: 0.140915 | Time: 69.56 sec
+        Batch:   11 | LL: -4.375856 | MSE: 0.115190 | Time: 82.92 sec
+        Batch:   12 | LL: -7.378928 | MSE: 0.175251 | Time: 72.99 sec
+        Batch:   13 | LL: -5.219281 | MSE: 0.132059 | Time: 64.37 sec
+        Batch:   14 | LL: -5.421463 | MSE: 0.136102 | Time: 62.46 sec
+        Batch:   15 | LL: -3.967696 | MSE: 0.107027 | Time: 75.85 sec
+        Test:
+        Batch:    0 | LL: -5.199839 | MSE: 0.131670 | Time: 17.83 sec
+        Batch:    1 | LL: -6.479061 | MSE: 0.157254 | Time: 19.98 sec
+        Batch:    2 | LL: -4.169249 | MSE: 0.111058 | Time: 18.62 sec
+        Batch:    3 | LL: -4.678890 | MSE: 0.121251 | Time: 21.10 sec
+Iter: 7
+        Train:
+        Batch:    0 | LL: -4.906755 | MSE: 0.125808 | Time: 71.27 sec
+        Batch:    1 | LL: -4.458254 | MSE: 0.116838 | Time: 61.70 sec
+        Batch:    2 | LL: -4.756886 | MSE: 0.122811 | Time: 60.00 sec
+        Batch:    3 | LL: -4.771503 | MSE: 0.123103 | Time: 59.98 sec
+        Batch:    4 | LL: -4.988466 | MSE: 0.127442 | Time: 60.22 sec
+        Batch:    5 | LL: -5.637002 | MSE: 0.140413 | Time: 60.28 sec
+        Batch:    6 | LL: -5.033771 | MSE: 0.128348 | Time: 60.78 sec
+        Batch:    7 | LL: -5.650408 | MSE: 0.140681 | Time: 60.55 sec
+        Batch:    8 | LL: -5.456749 | MSE: 0.136808 | Time: 60.72 sec
+        Batch:    9 | LL: -5.361638 | MSE: 0.134906 | Time: 65.79 sec
+        Batch:   10 | LL: -4.813569 | MSE: 0.123944 | Time: 69.79 sec
+        Batch:   11 | LL: -5.111512 | MSE: 0.129903 | Time: 62.43 sec
+        Batch:   12 | LL: -5.341444 | MSE: 0.134502 | Time: 67.87 sec
+        Batch:   13 | LL: -4.310455 | MSE: 0.113882 | Time: 69.31 sec
+        Batch:   14 | LL: -4.800853 | MSE: 0.123690 | Time: 62.99 sec
+        Batch:   15 | LL: -5.479765 | MSE: 0.137268 | Time: 62.07 sec
+        Test:
+        Batch:    0 | LL: -5.235959 | MSE: 0.132392 | Time: 18.20 sec
+        Batch:    1 | LL: -5.899346 | MSE: 0.145660 | Time: 16.25 sec
+        Batch:    2 | LL: -6.322999 | MSE: 0.154133 | Time: 15.98 sec
+        Batch:    3 | LL: -6.445409 | MSE: 0.156581 | Time: 16.16 sec
+Iter: 8
+        Train:
+        Batch:    0 | LL: -4.975861 | MSE: 0.127190 | Time: 66.48 sec
+        Batch:    1 | LL: -6.383772 | MSE: 0.155348 | Time: 63.35 sec
+        Batch:    2 | LL: -4.488678 | MSE: 0.117447 | Time: 60.40 sec
+        Batch:    3 | LL: -5.240238 | MSE: 0.132478 | Time: 59.76 sec
+        Batch:    4 | LL: -4.662228 | MSE: 0.120917 | Time: 60.39 sec
+        Batch:    5 | LL: -4.554539 | MSE: 0.118764 | Time: 59.93 sec
+        Batch:    6 | LL: -6.109292 | MSE: 0.149859 | Time: 59.35 sec
+        Batch:    7 | LL: -4.197193 | MSE: 0.111617 | Time: 59.96 sec
+        Batch:    8 | LL: -3.438454 | MSE: 0.096442 | Time: 59.78 sec
+        Batch:    9 | LL: -4.592338 | MSE: 0.119520 | Time: 60.57 sec
+        Batch:   10 | LL: -5.449500 | MSE: 0.136663 | Time: 61.13 sec
+        Batch:   11 | LL: -3.758731 | MSE: 0.102848 | Time: 59.64 sec
+        Batch:   12 | LL: -3.868940 | MSE: 0.105052 | Time: 59.86 sec
+        Batch:   13 | LL: -5.896231 | MSE: 0.145598 | Time: 65.33 sec
+        Batch:   14 | LL: -4.173563 | MSE: 0.111144 | Time: 62.58 sec
+        Batch:   15 | LL: -4.415388 | MSE: 0.115981 | Time: 63.82 sec
+        Test:
+        Batch:    0 | LL: -4.416452 | MSE: 0.116002 | Time: 18.73 sec
+        Batch:    1 | LL: -5.027278 | MSE: 0.128219 | Time: 16.02 sec
+        Batch:    2 | LL: -4.619381 | MSE: 0.120061 | Time: 15.24 sec
+        Batch:    3 | LL: -5.509739 | MSE: 0.137868 | Time: 15.33 sec
+Iter: 9
+        Train:
+        Batch:    0 | LL: -5.780315 | MSE: 0.143279 | Time: 59.68 sec
+        Batch:    1 | LL: -6.313840 | MSE: 0.153950 | Time: 60.72 sec
+        Batch:    2 | LL: -4.599766 | MSE: 0.119668 | Time: 61.89 sec
+        Batch:    3 | LL: -4.210753 | MSE: 0.111888 | Time: 61.28 sec
+        Batch:    4 | LL: -5.034529 | MSE: 0.128364 | Time: 59.81 sec
+        Batch:    5 | LL: -4.002348 | MSE: 0.107720 | Time: 62.20 sec
+        Batch:    6 | LL: -4.559823 | MSE: 0.118869 | Time: 60.84 sec
+        Batch:    7 | LL: -5.893533 | MSE: 0.145544 | Time: 60.63 sec
+        Batch:    8 | LL: -4.687099 | MSE: 0.121415 | Time: 60.52 sec
+        Batch:    9 | LL: -6.422405 | MSE: 0.156121 | Time: 64.67 sec
+        Batch:   10 | LL: -3.872282 | MSE: 0.105119 | Time: 61.81 sec
+        Batch:   11 | LL: -5.096639 | MSE: 0.129606 | Time: 62.22 sec
+        Batch:   12 | LL: -3.994020 | MSE: 0.107553 | Time: 63.53 sec
+        Batch:   13 | LL: -4.383343 | MSE: 0.115340 | Time: 60.44 sec
+        Batch:   14 | LL: -4.681370 | MSE: 0.121300 | Time: 61.45 sec
+        Batch:   15 | LL: -3.952558 | MSE: 0.106724 | Time: 61.43 sec
+        Test:
+        Batch:    0 | LL: -4.859711 | MSE: 0.124867 | Time: 16.91 sec
+        Batch:    1 | LL: -4.147323 | MSE: 0.110619 | Time: 15.90 sec
+        Batch:    2 | LL: -4.469107 | MSE: 0.117055 | Time: 15.38 sec
+        Batch:    3 | LL: -4.627358 | MSE: 0.120220 | Time: 15.42 sec
+Iter: 10
+        Train:
+        Batch:    0 | LL: -5.259474 | MSE: 0.132862 | Time: 58.44 sec
+        Batch:    1 | LL: -5.038065 | MSE: 0.128434 | Time: 61.01 sec
+        Batch:    2 | LL: -4.369655 | MSE: 0.115066 | Time: 67.29 sec
+        Batch:    3 | LL: -4.975859 | MSE: 0.127190 | Time: 66.85 sec
+        Batch:    4 | LL: -4.507007 | MSE: 0.117813 | Time: 62.78 sec
+        Batch:    5 | LL: -4.115355 | MSE: 0.109980 | Time: 63.99 sec
+        Batch:    6 | LL: -5.029987 | MSE: 0.128273 | Time: 63.43 sec
+        Batch:    7 | LL: -4.314810 | MSE: 0.113969 | Time: 64.30 sec
+        Batch:    8 | LL: -4.329740 | MSE: 0.114268 | Time: 61.44 sec
