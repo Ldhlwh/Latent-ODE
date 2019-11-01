@@ -7,6 +7,9 @@ from toy_batch import BatchGenerator
 from make_batch_mask import *
 from Latent_ODE import Latent_ODE
 from toy_sample import sample
+from torch.distributions.normal import Normal
+from torch.distributions import Independent
+
 
 import matplotlib, os
 matplotlib.use('Agg')
@@ -26,6 +29,7 @@ param = {
 	'total_points': 100,
 	'batch_size': 50, 
 	'figure_per_batch': 5,
+	'sigma': 0.1,
 	
 	# ODE_Func
 	'OF_layer_dim': 100,
@@ -47,6 +51,8 @@ param = {
 	'atol': 1e-4,
 	
 	'device': torch.device('cpu'),
+	'train_color': 'dodgerblue',
+	'test_color': 'orange',
 }
 #if torch.cuda.is_available():
 #	param['device'] = torch.device('cuda:3')
@@ -62,15 +68,13 @@ tbg = BatchGenerator(param['batch_size'], 'test')
 
 model = Latent_ODE(param).to(param['device'])
 optimizer = torch.optim.Adamax(model.parameters(), lr = param['lr'])
-loss_func = torch.nn.MSELoss()
+mse = torch.nn.MSELoss()
 
 for iter in range(param['num_iter']):
 	print('Iter: %d' % iter)
 	model.train()
 	print('\tTrain:')
 	bg.rewind()
-	ll = []
-	bn = 0
 	while bg.has_next_batch():
 		tic = time.time()
 		batch = bg.next_batch()
@@ -82,11 +86,18 @@ for iter in range(param['num_iter']):
 		#print('Batch got in %.2f sec' % (tec - tic))
 		optimizer.zero_grad()
 		output = model.forward(input_tuple)
-		masked_output = output[m_test.bool()]
-		target = torch.tensor(batch[:, param['obs_points']:, 1].flatten(), device = param['device'])
+		masked_output = output[m_test.bool()].reshape(param['batch_size'], (param['total_points'] - param['obs_points']))
+		target = b_test[:, :, 1][m_test.bool()].reshape(param['batch_size'], (param['total_points'] - param['obs_points']))
 		
-		loss = loss_func(masked_output, target)
-		ll.append(loss.item())
+		log_likelihood = torch.tensor(0.0)
+		for i in range(masked_output.shape[0]):
+			gaussian = Independent(Normal(masked_output[i], param['sigma']), 1)
+			ll = gaussian.log_prob(target[i]) / masked_output.shape[1]
+			log_likelihood += ll
+		log_likelihood /= masked_output.shape[0]
+		loss = -log_likelihood
+		mse_loss = mse(masked_output, target)
+		
 		#tac = time.time()
 		#print('Forward finished in %.2f sec' % (tac - tec))
 		loss.backward()
@@ -97,20 +108,17 @@ for iter in range(param['num_iter']):
 		
 		for k in range(param['figure_per_batch']):
 			plt.clf()
-			plt.plot(batch[k, :, 0], batch[k, :, 1])
-			plt.plot(batch[k, param['obs_points']:, 0], masked_output.reshape(param['batch_size'], param['total_points'] - param['obs_points']).detach()[k])
+			plt.plot(batch[k, :, 0], batch[k, :, 1]， color = param['train_color'], marker = '.')
+			plt.plot(batch[k, param['obs_points']:, 0], masked_output.detach()[k], color = param['test_color'], marker = '.')
 			plt.savefig('fig/' + str(iter) + '_' + str(bn) + '_' + str(k) + '.jpg')
 			
-		print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
+		print('\tBatch: %4d | LL: %f | MSE: %f | Time: %.2f sec' % (bn, log_likelihood.item(), mse_loss.item(), toc - tic))
 		bn += 1
-		
-	train_avg_loss = np.mean(ll)
 	
 	model.eval()
 	print('\tTest:')
 	with torch.no_grad():
 		tbg.rewind()
-		ll = []
 		bn = 0
 		while tbg.has_next_batch():
 			tic = time.time()
@@ -119,24 +127,29 @@ for iter in range(param['num_iter']):
 			b_test, m_test = make_batch_mask(test_batch[:, param['obs_points']:, :], param)
 			t0_test = b_train[0, -1, 0]
 			input_tuple = (b_train, m_train, b_test, m_test, t0_test)
-			
+			#tec = time.time()
+			#print('Batch got in %.2f sec' % (tec - tic))
 			output = model.forward(input_tuple)
-			masked_output = output[m_test.bool()]
-			target = torch.tensor(batch[:, param['obs_points']:, 1].flatten(), device = param['device'])
-			loss = loss_func(masked_output, target)
-			ll.append(loss.item())
+			masked_output = output[m_test.bool()].reshape(param['batch_size'], (param['total_points'] - param['obs_points']))
+			target = b_test[:, :, 1][m_test.bool()].reshape(param['batch_size'], (param['total_points'] - param['obs_points']))
+			
+			log_likelihood = torch.tensor(0.0)
+			for i in range(masked_output.shape[0]):
+				gaussian = Independent(Normal(masked_output[i], param['sigma']), 1)
+				ll = gaussian.log_prob(target[i]) / masked_output.shape[1]
+				log_likelihood += ll
+			log_likelihood /= masked_output.shape[0]
+			loss = -log_likelihood
+			mse_loss = mse(masked_output, target)
 			
 			toc = time.time()
 			
 			for k in range(param['figure_per_batch']):
 				plt.clf()
-				plt.plot(test_batch[k, :, 0], test_batch[k, :, 1])
-				plt.plot(test_batch[k, param['obs_points']:, 0], masked_output.reshape(param['batch_size'], param['total_points'] - param['obs_points']).detach()[k])
+				plt.plot(batch[k, :, 0], batch[k, :, 1]， color = param['train_color'], marker = '.')
+				plt.plot(batch[k, param['obs_points']:, 0], masked_output.detach()[k], color = param['test_color'], marker = '.')
 				plt.savefig('test_fig/' + str(iter) + '_' + str(bn) + '_' + str(k) + '.jpg')
-			
-			print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
+				
+			print('\tBatch: %4d | LL: %f | MSE: %f | Time: %.2f sec' % (bn, log_likelihood.item(), mse_loss.item(), toc - tic))
 			bn += 1
-			
-		test_avg_loss = np.mean(ll)
-		print('Train Loss: %f | Test Loss: %f\n' % (train_avg_loss, test_avg_loss))
 		

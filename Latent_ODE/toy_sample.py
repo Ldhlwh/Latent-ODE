@@ -23,7 +23,7 @@ def sample(param, type):
 		x.sort()
 		a[i, :, 0] = x
 		y = np.cos(x / (T / (2 * np.pi)))
-		y = np.random.normal(y, 0.1)
+		y = np.random.normal(y, param['sigma'])
 		a[i, :, 1] = y
 		'''
 		if i < 10:

@@ -32,9 +32,9 @@ class ODE_RNN(nn.Module):
 		m = mask	# (batch_size, num_time_points)
 		hp = odeint(self.ode_func, self.h0, torch.tensor([0.0, b[0, 0, 0]], device = self.param['device']), rtol = self.param['rtol'], atol = self.param['atol'])[1]
 		ht = self.rnn_cell(b[:, 0, 1].reshape(-1, 1), hp)
-		h = torch.mul(m[:, 0].reshape(-1, 1), ht) + torch.mul(1 - m[:, 0].reshape(-1, 1), hp)
+		h = torch.mul(m[:, 0].reshape(-1, 1), ht) + torch.mul((1 - m[:, 0].reshape(-1, 1)), hp)
 		for i in range(1, b.shape[1]):
-			hp = odeint(self.ode_func, h, torch.tensor([b[0, i - 1, 0], b[0, i, 0]], device = self.param['device']), rtol = self.param['rtol'], atol = self.param['atol'])[1]
+			hp = odeint(self.ode_func, h, b[0, i - 1:i + 1, 0], rtol = self.param['rtol'], atol = self.param['atol'])[1]
 			ht = self.rnn_cell(b[:, i, 1].reshape(-1, 1), hp)
-			h = torch.mul(m[:, i].reshape(-1, 1), ht) + torch.mul(1 - m[:, i].reshape(-1, 1), hp)
+			h = torch.mul(m[:, i].reshape(-1, 1), ht) + torch.mul((1 - m[:, i]).reshape(-1, 1), hp)
 		return h
