@@ -1,6 +1,6 @@
 # Latent-ODE
 
-This repo includes two experiments on toy dataset described in the paper:
+This repo includes two experiments on toy dataset described in https://arxiv.org/abs/1907.03907 :
 
 - For ODE-RNN in interpolation task, see ./ODE_RNN
 - For Latent ODE in extrapolation task, see ./Latent_ODE
