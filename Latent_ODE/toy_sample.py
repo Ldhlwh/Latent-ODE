@@ -13,12 +13,12 @@ def sample(param, type):
 
 	a = np.zeros((total_seq, param['total_points'], 2))
 	
-	div_time = 5 * param['obs_points'] / param['total_points']
+	div_time = param['time_horizon'] * param['obs_points'] / param['total_points']
 	for i in range(total_seq):
 
-		T = np.random.rand() / 2 + 0.5
+		T = np.random.rand() * (param['period_max'] - param['period_min']) + param['period_min']
 		x1 = np.random.rand(param['obs_points']) * div_time
-		x2 = np.random.rand(param['total_points'] - param['obs_points']) * (5 - div_time) + div_time
+		x2 = np.random.rand(param['total_points'] - param['obs_points']) * (param['time_horizon'] - div_time) + div_time
 		x = np.concatenate((x1, x2))
 		x.sort()
 		a[i, :, 0] = x

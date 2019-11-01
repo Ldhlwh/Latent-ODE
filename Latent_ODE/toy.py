@@ -8,14 +8,24 @@ from make_batch_mask import *
 from Latent_ODE import Latent_ODE
 from toy_sample import sample
 
+import matplotlib, os
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+os.system('rm -f fig/*')
+os.system('rm -f test_fig/*')
+
 param = {
-	'resample': False,
+	'resample': True,
+	'time_horizon': 50,
+	'period_min': 5,
+	'period_max': 10,
 	'num_seq': 800,
 	'test_num_seq': 200,
 	'num_point_in_seq': 100,
 	'obs_points': 30,
 	'total_points': 100,
 	'batch_size': 50, 
+	'figure_per_batch': 5,
 	
 	# ODE_Func
 	'OF_layer_dim': 100,
@@ -30,12 +40,16 @@ param = {
 	
 	# Hyperparam
 	'num_iter': 20,
-	'lr': 1e-4,
+	'lr': 1e-2,
+	
+	# ODE Solver
+	'rtol': 1e-3,
+	'atol': 1e-4,
 	
 	'device': torch.device('cpu'),
 }
-if torch.cuda.is_available():
-	param['device'] = torch.device('cuda:3')
+#if torch.cuda.is_available():
+#	param['device'] = torch.device('cuda:3')
 	
 print('Train on', param['device'])
 
@@ -47,7 +61,7 @@ bg = BatchGenerator(param['batch_size'], 'train')
 tbg = BatchGenerator(param['batch_size'], 'test')
 
 model = Latent_ODE(param).to(param['device'])
-optimizer = torch.optim.RMSprop(model.parameters(), lr = param['lr'])
+optimizer = torch.optim.Adamax(model.parameters(), lr = param['lr'])
 loss_func = torch.nn.MSELoss()
 
 for iter in range(param['num_iter']):
@@ -64,7 +78,6 @@ for iter in range(param['num_iter']):
 		b_test, m_test = make_batch_mask(batch[:, param['obs_points']:, :], param)
 		t0_test = b_train[0, -1, 0]
 		input_tuple = (b_train, m_train, b_test, m_test, t0_test)
-		
 		#tec = time.time()
 		#print('Batch got in %.2f sec' % (tec - tic))
 		optimizer.zero_grad()
@@ -77,8 +90,17 @@ for iter in range(param['num_iter']):
 		#tac = time.time()
 		#print('Forward finished in %.2f sec' % (tac - tec))
 		loss.backward()
+		#tuc = time.time()
+		#print('Backward fininshed in %.2f sec' % (tuc - tac))
 		optimizer.step()
 		toc = time.time()
+		
+		for k in range(param['figure_per_batch']):
+			plt.clf()
+			plt.plot(batch[k, :, 0], batch[k, :, 1])
+			plt.plot(batch[k, param['obs_points']:, 0], masked_output.reshape(param['batch_size'], param['total_points'] - param['obs_points']).detach()[k])
+			plt.savefig('fig/' + str(iter) + '_' + str(bn) + '_' + str(k) + '.jpg')
+			
 		print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
 		bn += 1
 		
@@ -105,6 +127,13 @@ for iter in range(param['num_iter']):
 			ll.append(loss.item())
 			
 			toc = time.time()
+			
+			for k in range(param['figure_per_batch']):
+				plt.clf()
+				plt.plot(test_batch[k, :, 0], test_batch[k, :, 1])
+				plt.plot(test_batch[k, param['obs_points']:, 0], masked_output.reshape(param['batch_size'], param['total_points'] - param['obs_points']).detach()[k])
+				plt.savefig('test_fig/' + str(iter) + '_' + str(bn) + '_' + str(k) + '.jpg')
+			
 			print('\tBatch: %4d | Loss: %f | Time: %.2f sec' % (bn, loss.item(), toc - tic))
 			bn += 1
 			
