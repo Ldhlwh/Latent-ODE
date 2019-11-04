@@ -1,7 +1,9 @@
 import torch
 import torch.nn as nn
-from torchdiffeq import odeint_adjoint as odeint
+from torchdiffeq import odeint
 from ODE_RNN import ODE_RNN
+from torch.distributions.normal import Normal
+from torch.distributions.kl import kl_divergence
 
 class LO_ODE_Func(nn.Module):
 	
@@ -9,14 +11,18 @@ class LO_ODE_Func(nn.Module):
 		super(LO_ODE_Func, self).__init__()
 		self.param = param
 		self.hidden_layer = nn.Linear(self.param['LO_hidden_size'], self.param['OF_layer_dim'])
+		self.hidden_tanh = nn.Tanh()
+		self.hidden_layer2 = nn.Linear(self.param['OF_layer_dim'], self.param['OF_layer_dim'])
+		self.hidden_tanh2 = nn.Tanh()
 		self.output_layer = nn.Linear(self.param['OF_layer_dim'], self.param['LO_hidden_size'])
-		self.tanh = nn.Tanh()
 		
 	def forward(self, t, input):
 		x = input
 		x = self.hidden_layer(x)
+		x = self.hidden_tanh(x)
+		x = self.hidden_layer2(x)
+		x = self.hidden_tanh2(x)
 		x = self.output_layer(x)
-		x = self.tanh(x)
 		return x
 
 class Latent_ODE(nn.Module):
@@ -24,35 +30,26 @@ class Latent_ODE(nn.Module):
 	def __init__(self, param):
 		super(Latent_ODE, self).__init__()
 		self.param = param
-		self.ode_rnn = ODE_RNN(self.param)
-		self.gmu_hidden = nn.Linear(self.param['OR_hidden_size'], self.param['g_hidden_dim'])
-		self.gmu_output = nn.Linear(self.param['g_hidden_dim'], self.param['LO_hidden_size'])
-		self.gmu_tanh = nn.Tanh()
-		self.gsigma_hidden = nn.Linear(self.param['OR_hidden_size'], self.param['g_hidden_dim'])
-		self.gsigma_output = nn.Linear(self.param['g_hidden_dim'], self.param['LO_hidden_size'])
-		self.gsigma_tanh = nn.Tanh()
 		self.ode_func = LO_ODE_Func(param)
-		self.output_hidden = nn.Linear(self.param['LO_hidden_size'], self.param['LO_hidden_dim'])
-		self.output_output = nn.Linear(self.param['LO_hidden_dim'], 1)
-		self.output_tanh = nn.Tanh()
+		self.ode_rnn = ODE_RNN(param)
+		self.output_output = nn.Sequential(
+			nn.Linear(self.param['LO_hidden_size'], 1),
+		)
 	
 	def forward(self, input):
-		b_train, m_train, b_test, m_test, t0_test = input
+		b, m, train_m, test_m = input
 		
-		z0p = self.ode_rnn(b_train, m_train)	# (batch_size, OR_hidden_size)
-		mu = self.gmu_hidden(z0p)
-		mu = self.gmu_output(mu)
-		#mu = self.gmu_tanh(mu)
-		sigma = self.gsigma_hidden(z0p)
-		sigma = self.gsigma_output(sigma)
-		#sigma = self.gsigma_tanh(sigma)
-		z0 = torch.normal(mu, sigma)	# (batch_size, LO_hidden_size)
-		z_out = odeint(self.ode_func, z0, torch.cat((t0_test.reshape(1), b_test[0, :, 0])), rtol = self.param['rtol'], atol = self.param['atol'])[1:]	# (num_time_points, batch_size, LO_hidden_size)
-		output = torch.zeros(z_out.shape[1], z_out.shape[0], device = self.param['device'])	# (batch_size, num_time_points)
-		for i in range(output.shape[1]):
-			out = self.output_hidden(z_out[i])
-			out = self.output_output(out)
-			out = self.output_tanh(out)
-			output[:, i] = out.reshape(-1)
+		mean, std = self.ode_rnn(input)	# (batch_size, LO_hidden_size) * 2
 		
-		return output
+		d = Normal(torch.tensor([0.0], device = self.param['device']), torch.tensor([1.0], device = self.param['device']))
+		r = d.sample(mean.shape).squeeze(-1)
+		z0 = mean + r * std
+		
+		z_out = odeint(self.ode_func, z0, b[0, :, 0], rtol = self.param['rtol'], atol = self.param['atol']) # (num_time_points, batch_size, LO_hidden_size)	
+		z_out = z_out.permute(1, 0, 2)
+		output = self.output_output(z_out).squeeze(2)
+
+		z0_distr = Normal(mean, std)
+		kl_div = kl_divergence(z0_distr, Normal(torch.tensor([0.0], device = self.param['device']), torch.tensor([1.0], device = self.param['device'])))
+		kl_div = kl_div.mean(axis = 1)
+		return output, kl_div

@@ -1,4 +1,5 @@
 import numpy as np
+from make_batch_mask import *
 
 class BatchGenerator:
 	
@@ -11,7 +12,8 @@ class BatchGenerator:
 		self.length = self.data.shape[0]
 		self.cur = 0
 		self.batch_size = batch_size
-		self.check(type, param)
+		if param['resample']:
+			self.check(type, param)
 		
 	def has_next_batch(self):
 		return self.cur < self.length
@@ -31,16 +33,17 @@ class BatchGenerator:
 		
 	def check(self, type, param):
 		while self.has_next_batch():
-			batch = self.next_batch
-			b, m = make_batch_mask(batch, param)
+			batch = self.next_batch()
+			b, m, train_m, test_m = make_batch_mask(batch, param)
 			try:
-				if type == 'train':
-					assert(m.sum() == param['batch_size'] * param['obs_points'])
-				elif type == 'test':
-					assert(m.sum() == param['batch_size'] * (param['total_points'] - param['obs_points']))
+				assert(m.sum() == param['batch_size'] * param['total_points'])
+				assert(test_m.sum() == param['batch_size'] * (param['total_points'] - param['obs_points']))
+				assert(train_m.sum() == param['batch_size'] * param['obs_points'])
+				assert((train_m.int() & test_m.int()).sum() == 0)
+				assert(torch.equal((train_m.int() | test_m.int()), m.int()))
 			except AssertionError:
 				print('Something is wrong with ' + type + ' data, please resample it')
 				exit(1)
-				
+			
 		self.rewind()
 		print('Check on ' + type + ' data passed')

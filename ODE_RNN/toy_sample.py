@@ -25,7 +25,7 @@ def sample(param, type):
 			
 		a[i, :, 0] = x
 		y = np.cos(x / (T / (2 * np.pi)))
-		y = np.random.normal(y, param['sigma'])
+		#y = np.random.normal(y, param['sigma'])
 		a[i, :, 1] = y
 		'''
 		if i < 10:

@@ -13,22 +13,25 @@ def sample(param, type):
 
 	a = np.zeros((total_seq, param['total_points'], 2))
 	
-	div_time = param['time_horizon'] * param['obs_points'] / param['total_points']
+	#div_time = param['time_horizon'] * param['obs_points'] / param['total_points']
 	for i in range(total_seq):
 
 		T = np.random.rand() * (param['period_max'] - param['period_min']) + param['period_min']
-		x1 = np.random.rand(param['obs_points']) * div_time
-		x2 = np.random.rand(param['total_points'] - param['obs_points']) * (param['time_horizon'] - div_time) + div_time
-		x = np.concatenate((x1, x2))
-		x.sort()
+		while True:
+			x = np.random.rand(param['total_points']) * param['time_horizon']
+			x.sort()
+			if len(np.unique(x)) == param['total_points']:
+				break
+			
 		a[i, :, 0] = x
-		y = np.cos(x / (T / (2 * np.pi)))
-		y = np.random.normal(y, param['sigma'])
+		y = np.sin(x / (T / (2 * np.pi)))
+		y[0] = np.random.normal(0.0, 0.1)
+		#y = np.random.normal(y, param['sigma'])
 		a[i, :, 1] = y
 		'''
 		if i < 10:
 			plt.clf()
-			plt.plot(a[i, :, 0], a[i, :, 1])
+			plt.plot(a[i, :, 0], a[i, :, 1], '.')
 			plt.savefig('plot' + str(i) + '.jpg')
 		'''
 	if type == 'train':
