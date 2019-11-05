@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchdiffeq import odeint
 from ODE_RNN import ODE_RNN
 from torch.distributions.normal import Normal
-from torch.distributions.kl import kl_divergence
+from torch.distributions import kl_divergence, Independent
 
 class LO_ODE_Func(nn.Module):
 	
@@ -35,8 +35,9 @@ class Latent_ODE(nn.Module):
 		self.output_output = nn.Sequential(
 			nn.Linear(self.param['LO_hidden_size'], 1),
 		)
+		self.mse_func = nn.MSELoss()
 	
-	def forward(self, input):
+	def forward(self, input, kl_coef):
 		b, m, train_m, test_m = input
 		
 		mean, std = self.ode_rnn(input)	# (batch_size, LO_hidden_size) * 2
@@ -52,4 +53,16 @@ class Latent_ODE(nn.Module):
 		z0_distr = Normal(mean, std)
 		kl_div = kl_divergence(z0_distr, Normal(torch.tensor([0.0], device = self.param['device']), torch.tensor([1.0], device = self.param['device'])))
 		kl_div = kl_div.mean(axis = 1)
-		return output, kl_div
+		
+		masked_output = output[test_m.bool()].reshape(self.param['batch_size'], (self.param['total_points'] - self.param['obs_points']))
+		target = b[:, :, 1][test_m.bool()].reshape(self.param['batch_size'], (self.param['total_points'] - self.param['obs_points']))
+		
+		gaussian = Independent(Normal(loc = masked_output, scale = self.param['obsrv_std']), 1)
+		log_prob = gaussian.log_prob(target)
+		likelihood = log_prob / output.shape[1]
+		
+		loss = -torch.logsumexp(likelihood - kl_coef * kl_div, 0)
+		mse = self.mse_func(masked_output, target)
+		
+		return loss, mse, masked_output
+		

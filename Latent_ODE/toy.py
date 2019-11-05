@@ -29,6 +29,7 @@ param = {
 	'batch_size': 50, 
 	'figure_per_batch': 5,
 	'sigma': 0.1,
+	'obsrv_std': 0.01, 
 	
 	# ODE_Func
 	'OF_layer_dim': 100,
@@ -69,7 +70,6 @@ tbg = BatchGenerator(param['batch_size'], 'test', param)
 
 model = Latent_ODE(param).to(param['device'])
 optimizer = torch.optim.Adamax(model.parameters(), lr = param['lr'])
-mse = torch.nn.MSELoss()
 
 kl_cnt = 0
 for iter in range(param['num_iter']):
@@ -87,22 +87,9 @@ for iter in range(param['num_iter']):
 		#tec = time.time()
 		#print('Batch got in %.2f sec' % (tec - tic))
 		optimizer.zero_grad()
-		output, kl_div = model.forward(input_tuple)
-		masked_output = output[m.bool()].reshape(param['batch_size'], param['total_points'])
-		target = b[:, :, 1][m.bool()].reshape(param['batch_size'], param['total_points'])
-		
-		log_likelihood = torch.zeros((masked_output.shape[0]), device = param['device'])
-		for i in range(masked_output.shape[0]):
-			gaussian = Independent(Normal(masked_output[i], param['sigma']), 1)
-			ll = gaussian.log_prob(target[i]) / masked_output.shape[1]
-			log_likelihood[i] = ll
-		#log_likelihood /= masked_output.shape[0]
-		
 		kl_coef = 1 - 0.99 ** kl_cnt
 		kl_cnt += 1
-		loss = -(log_likelihood - kl_coef * kl_div).mean()
-		#loss = -log_likelihood.mean()
-		mse_loss = mse(masked_output, target)
+		loss, mse, masked_output = model.forward(input_tuple, kl_coef)
 		
 		loss.backward()
 		optimizer.step()
@@ -110,13 +97,13 @@ for iter in range(param['num_iter']):
 		
 		for k in range(param['figure_per_batch']):
 			plt.clf()
-			plt.plot(b[k, :, 0][m[k].bool()].detach(), target[k].detach(), color = param['train_color'])
+			plt.plot(b[k, :, 0][m[k].bool()].detach(), b[k, :, 1][m[k].bool()].detach(), color = param['train_color'])
 			plt.plot(b[k, :, 0][train_m[k].bool()].detach(), b[k, :, 1][train_m[k].bool()].detach(), '.', color = param['train_color'])
-			plt.plot(b[k, :, 0][m[k].bool()].detach(), masked_output[k].detach(), color = param['test_color'], marker = '.')
+			plt.plot(b[k, :, 0][test_m[k].bool()].detach(), masked_output[k].detach(), color = param['test_color'], marker = '.')
 			#plt.plot(b[k, :, 0][test_m[k].bool()].detach(), masked_output.reshape(param['batch_size'], param['total_points'] - param['obs_points'])[k].detach(), '.')
 			plt.savefig('fig/' + str(iter) + '_' + str(bn) + '_' + str(k) + '.jpg')
 			
-		print('\tBatch: %4d | Loss: %f | MSE: %f | Time: %.2f sec' % (bn, loss.item(), mse_loss.item(), toc - tic))
+		print('\tBatch: %4d | Loss: %f | MSE: %f | Time: %.2f sec' % (bn, loss.item(), mse.item(), toc - tic))
 		bn += 1
 	'''
 	model.eval()

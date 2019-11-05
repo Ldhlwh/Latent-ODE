@@ -1,0 +1,364 @@
+Train on cpu
+Data resampled
+Check on train data passed
+Check on test data passed
+Iter: 0
+        Train:
+        Batch:    0 | Loss: 2566.263672 | MSE: 0.513990 | Time: 14.53 sec
+        Batch:    1 | Loss: 2496.467529 | MSE: 0.500030 | Time: 15.39 sec
+        Batch:    2 | Loss: 2667.836670 | MSE: 0.534304 | Time: 16.87 sec
+        Batch:    3 | Loss: 2483.672119 | MSE: 0.497471 | Time: 16.75 sec
+        Batch:    4 | Loss: 2440.955322 | MSE: 0.488927 | Time: 20.10 sec
+        Batch:    5 | Loss: 2482.691162 | MSE: 0.497273 | Time: 15.17 sec
+        Batch:    6 | Loss: 2448.479248 | MSE: 0.490431 | Time: 15.16 sec
+        Batch:    7 | Loss: 2436.403076 | MSE: 0.488015 | Time: 15.17 sec
+        Batch:    8 | Loss: 2433.061279 | MSE: 0.487347 | Time: 15.50 sec
+        Batch:    9 | Loss: 2433.187012 | MSE: 0.487371 | Time: 15.49 sec
+        Batch:   10 | Loss: 2448.378662 | MSE: 0.490408 | Time: 15.46 sec
+        Batch:   11 | Loss: 2390.558350 | MSE: 0.478844 | Time: 21.67 sec
+        Batch:   12 | Loss: 2377.171631 | MSE: 0.476166 | Time: 16.86 sec
+        Batch:   13 | Loss: 2343.026611 | MSE: 0.469336 | Time: 15.20 sec
+        Batch:   14 | Loss: 2328.728516 | MSE: 0.466475 | Time: 17.35 sec
+        Batch:   15 | Loss: 2355.530273 | MSE: 0.471836 | Time: 15.18 sec
+Iter: 1
+        Train:
+        Batch:    0 | Loss: 2326.538818 | MSE: 0.466037 | Time: 14.92 sec
+        Batch:    1 | Loss: 2362.879639 | MSE: 0.473305 | Time: 14.92 sec
+        Batch:    2 | Loss: 2370.508301 | MSE: 0.474829 | Time: 14.90 sec
+        Batch:    3 | Loss: 2331.640381 | MSE: 0.467055 | Time: 15.42 sec
+        Batch:    4 | Loss: 2334.450439 | MSE: 0.467617 | Time: 14.90 sec
+        Batch:    5 | Loss: 2355.575928 | MSE: 0.471842 | Time: 14.87 sec
+        Batch:    6 | Loss: 2354.849854 | MSE: 0.471696 | Time: 15.52 sec
+        Batch:    7 | Loss: 2329.235840 | MSE: 0.466573 | Time: 15.59 sec
+        Batch:    8 | Loss: 2302.643555 | MSE: 0.461253 | Time: 14.99 sec
+        Batch:    9 | Loss: 2442.284668 | MSE: 0.489180 | Time: 15.77 sec
+        Batch:   10 | Loss: 2324.295166 | MSE: 0.465581 | Time: 15.11 sec
+        Batch:   11 | Loss: 2346.962158 | MSE: 0.470111 | Time: 14.91 sec
+        Batch:   12 | Loss: 2367.934326 | MSE: 0.474305 | Time: 15.54 sec
+        Batch:   13 | Loss: 2324.472412 | MSE: 0.465614 | Time: 14.95 sec
+        Batch:   14 | Loss: 2320.071289 | MSE: 0.464734 | Time: 15.13 sec
+        Batch:   15 | Loss: 2281.619629 | MSE: 0.457043 | Time: 15.09 sec
+Iter: 2
+        Train:
+        Batch:    0 | Loss: 2278.480469 | MSE: 0.456414 | Time: 15.09 sec
+        Batch:    1 | Loss: 2352.191406 | MSE: 0.471156 | Time: 14.92 sec
+        Batch:    2 | Loss: 2306.878174 | MSE: 0.462092 | Time: 15.02 sec
+        Batch:    3 | Loss: 2344.498779 | MSE: 0.469616 | Time: 14.99 sec
+        Batch:    4 | Loss: 2237.287598 | MSE: 0.448171 | Time: 15.60 sec
+        Batch:    5 | Loss: 2262.746094 | MSE: 0.453263 | Time: 15.60 sec
+        Batch:    6 | Loss: 2185.561523 | MSE: 0.437826 | Time: 19.25 sec
+        Batch:    7 | Loss: 2253.772949 | MSE: 0.451466 | Time: 26.92 sec
+        Batch:    8 | Loss: 2208.008057 | MSE: 0.442310 | Time: 15.38 sec
+        Batch:    9 | Loss: 2178.838867 | MSE: 0.436477 | Time: 14.87 sec
+        Batch:   10 | Loss: 2136.726562 | MSE: 0.428054 | Time: 14.94 sec
+        Batch:   11 | Loss: 2135.061768 | MSE: 0.427721 | Time: 15.98 sec
+        Batch:   12 | Loss: 2245.080322 | MSE: 0.449726 | Time: 16.56 sec
+        Batch:   13 | Loss: 2169.892090 | MSE: 0.434688 | Time: 19.04 sec
+        Batch:   14 | Loss: 2171.735107 | MSE: 0.435057 | Time: 19.43 sec
+        Batch:   15 | Loss: 2135.639404 | MSE: 0.427839 | Time: 19.31 sec
+Iter: 3
+        Train:
+        Batch:    0 | Loss: 2111.683594 | MSE: 0.423048 | Time: 18.33 sec
+        Batch:    1 | Loss: 2030.843750 | MSE: 0.406879 | Time: 17.16 sec
+        Batch:    2 | Loss: 2207.284180 | MSE: 0.442167 | Time: 18.03 sec
+        Batch:    3 | Loss: 2176.237061 | MSE: 0.435959 | Time: 16.30 sec
+        Batch:    4 | Loss: 2298.807373 | MSE: 0.460473 | Time: 16.25 sec
+        Batch:    5 | Loss: 2309.852539 | MSE: 0.462679 | Time: 17.42 sec
+        Batch:    6 | Loss: 2225.797852 | MSE: 0.445868 | Time: 17.33 sec
+        Batch:    7 | Loss: 2219.244141 | MSE: 0.444560 | Time: 17.03 sec
+        Batch:    8 | Loss: 2098.578125 | MSE: 0.420427 | Time: 17.86 sec
+        Batch:    9 | Loss: 2182.540039 | MSE: 0.437219 | Time: 21.56 sec
+        Batch:   10 | Loss: 2148.433350 | MSE: 0.430395 | Time: 16.34 sec
+        Batch:   11 | Loss: 2125.159180 | MSE: 0.425740 | Time: 16.15 sec
+        Batch:   12 | Loss: 2144.791260 | MSE: 0.429668 | Time: 15.86 sec
+        Batch:   13 | Loss: 1999.388428 | MSE: 0.400585 | Time: 15.87 sec
+        Batch:   14 | Loss: 1974.660400 | MSE: 0.395637 | Time: 15.78 sec
+        Batch:   15 | Loss: 1993.265869 | MSE: 0.399357 | Time: 15.77 sec
+Iter: 4
+        Train:
+        Batch:    0 | Loss: 1947.435547 | MSE: 0.390190 | Time: 15.83 sec
+        Batch:    1 | Loss: 2032.923706 | MSE: 0.407287 | Time: 16.02 sec
+        Batch:    2 | Loss: 2000.160767 | MSE: 0.400738 | Time: 15.87 sec
+        Batch:    3 | Loss: 2038.233765 | MSE: 0.408353 | Time: 15.85 sec
+        Batch:    4 | Loss: 1947.344971 | MSE: 0.390176 | Time: 21.39 sec
+        Batch:    5 | Loss: 2024.564453 | MSE: 0.405618 | Time: 18.79 sec
+        Batch:    6 | Loss: 1930.362915 | MSE: 0.386778 | Time: 17.90 sec
+        Batch:    7 | Loss: 2164.434814 | MSE: 0.433590 | Time: 15.97 sec
+        Batch:    8 | Loss: 2004.688232 | MSE: 0.401640 | Time: 15.85 sec
+        Batch:    9 | Loss: 1821.596924 | MSE: 0.365019 | Time: 15.57 sec
+        Batch:   10 | Loss: 2062.672119 | MSE: 0.413234 | Time: 15.35 sec
+        Batch:   11 | Loss: 1773.954224 | MSE: 0.355488 | Time: 15.65 sec
+        Batch:   12 | Loss: 1882.460938 | MSE: 0.377189 | Time: 16.69 sec
+        Batch:   13 | Loss: 1838.218872 | MSE: 0.368338 | Time: 15.56 sec
+        Batch:   14 | Loss: 1769.019409 | MSE: 0.354493 | Time: 15.23 sec
+        Batch:   15 | Loss: 1878.520752 | MSE: 0.376391 | Time: 15.18 sec
+Iter: 5
+        Train:
+        Batch:    0 | Loss: 1761.779419 | MSE: 0.353044 | Time: 15.78 sec
+        Batch:    1 | Loss: 1597.095215 | MSE: 0.320109 | Time: 15.06 sec
+        Batch:    2 | Loss: 2027.929321 | MSE: 0.406274 | Time: 15.05 sec
+        Batch:    3 | Loss: 2058.091309 | MSE: 0.412310 | Time: 15.44 sec
+        Batch:    4 | Loss: 2355.752441 | MSE: 0.471845 | Time: 15.05 sec
+        Batch:    5 | Loss: 2469.146729 | MSE: 0.494527 | Time: 15.15 sec
+        Batch:    6 | Loss: 2422.211670 | MSE: 0.485144 | Time: 15.00 sec
+        Batch:    7 | Loss: 2293.531738 | MSE: 0.459410 | Time: 15.00 sec
+        Batch:    8 | Loss: 2113.635742 | MSE: 0.423433 | Time: 18.39 sec
+        Batch:    9 | Loss: 2024.163208 | MSE: 0.405538 | Time: 16.10 sec
+        Batch:   10 | Loss: 1993.977905 | MSE: 0.399501 | Time: 14.96 sec
+        Batch:   11 | Loss: 2009.782593 | MSE: 0.402659 | Time: 15.41 sec
+        Batch:   12 | Loss: 2279.159912 | MSE: 0.456536 | Time: 19.27 sec
+        Batch:   13 | Loss: 2170.088135 | MSE: 0.434717 | Time: 15.13 sec
+        Batch:   14 | Loss: 1904.172363 | MSE: 0.381530 | Time: 15.03 sec
+        Batch:   15 | Loss: 1979.186523 | MSE: 0.396538 | Time: 15.26 sec
+Iter: 6
+        Train:
+        Batch:    0 | Loss: 1989.585815 | MSE: 0.398622 | Time: 15.15 sec
+        Batch:    1 | Loss: 2036.671021 | MSE: 0.408040 | Time: 14.92 sec
+        Batch:    2 | Loss: 2068.114502 | MSE: 0.414328 | Time: 14.96 sec
+        Batch:    3 | Loss: 1973.502441 | MSE: 0.395404 | Time: 15.05 sec
+        Batch:    4 | Loss: 1928.760254 | MSE: 0.386451 | Time: 15.10 sec
+        Batch:    5 | Loss: 1894.443237 | MSE: 0.379590 | Time: 15.03 sec
+        Batch:    6 | Loss: 1745.871948 | MSE: 0.349874 | Time: 15.17 sec
+        Batch:    7 | Loss: 1898.286011 | MSE: 0.380357 | Time: 15.21 sec
+        Batch:    8 | Loss: 1891.569214 | MSE: 0.379010 | Time: 15.17 sec
+        Batch:    9 | Loss: 1807.611328 | MSE: 0.362214 | Time: 15.09 sec
+        Batch:   10 | Loss: 1709.009521 | MSE: 0.342487 | Time: 15.19 sec
+        Batch:   11 | Loss: 1683.141724 | MSE: 0.337312 | Time: 15.96 sec
+        Batch:   12 | Loss: 1577.875122 | MSE: 0.316259 | Time: 15.22 sec
+        Batch:   13 | Loss: 1475.474976 | MSE: 0.295782 | Time: 15.04 sec
+        Batch:   14 | Loss: 1547.536133 | MSE: 0.310189 | Time: 15.03 sec
+        Batch:   15 | Loss: 1495.338867 | MSE: 0.299753 | Time: 14.98 sec
+Iter: 7
+        Train:
+        Batch:    0 | Loss: 1463.231323 | MSE: 0.293331 | Time: 15.07 sec
+        Batch:    1 | Loss: 1735.045044 | MSE: 0.347687 | Time: 14.87 sec
+        Batch:    2 | Loss: 2548.148682 | MSE: 0.510308 | Time: 14.89 sec
+        Batch:    3 | Loss: 2725.757568 | MSE: 0.545833 | Time: 14.98 sec
+        Batch:    4 | Loss: 2514.007812 | MSE: 0.503487 | Time: 15.08 sec
+        Batch:    5 | Loss: 2491.521484 | MSE: 0.498991 | Time: 14.95 sec
+        Batch:    6 | Loss: 2111.645508 | MSE: 0.423017 | Time: 15.06 sec
+        Batch:    7 | Loss: 1853.292969 | MSE: 0.371346 | Time: 15.05 sec
+        Batch:    8 | Loss: 1923.100342 | MSE: 0.385306 | Time: 16.81 sec
+        Batch:    9 | Loss: 2014.498291 | MSE: 0.403585 | Time: 15.02 sec
+        Batch:   10 | Loss: 1927.001709 | MSE: 0.386085 | Time: 15.08 sec
+        Batch:   11 | Loss: 1875.642334 | MSE: 0.375813 | Time: 14.92 sec
+        Batch:   12 | Loss: 1795.218628 | MSE: 0.359725 | Time: 14.91 sec
+        Batch:   13 | Loss: 1884.255371 | MSE: 0.377526 | Time: 14.90 sec
+        Batch:   14 | Loss: 1941.240112 | MSE: 0.388915 | Time: 14.96 sec
+        Batch:   15 | Loss: 1973.070923 | MSE: 0.395283 | Time: 14.96 sec
+Iter: 8
+        Train:
+        Batch:    0 | Loss: 1974.061035 | MSE: 0.395485 | Time: 14.90 sec
+        Batch:    1 | Loss: 1929.115845 | MSE: 0.386494 | Time: 14.95 sec
+        Batch:    2 | Loss: 1878.446289 | MSE: 0.376358 | Time: 14.92 sec
+        Batch:    3 | Loss: 1799.614258 | MSE: 0.360588 | Time: 14.82 sec
+        Batch:    4 | Loss: 1828.476929 | MSE: 0.366356 | Time: 14.87 sec
+        Batch:    5 | Loss: 1842.177856 | MSE: 0.369099 | Time: 14.91 sec
+        Batch:    6 | Loss: 1893.725708 | MSE: 0.379408 | Time: 14.89 sec
+        Batch:    7 | Loss: 1887.666138 | MSE: 0.378198 | Time: 14.99 sec
+        Batch:    8 | Loss: 1661.941650 | MSE: 0.333050 | Time: 15.01 sec
+        Batch:    9 | Loss: 1681.390625 | MSE: 0.336937 | Time: 14.94 sec
+        Batch:   10 | Loss: 1671.712769 | MSE: 0.335001 | Time: 14.86 sec
+        Batch:   11 | Loss: 1460.328125 | MSE: 0.292720 | Time: 14.94 sec
+        Batch:   12 | Loss: 1479.081543 | MSE: 0.296469 | Time: 14.99 sec
+        Batch:   13 | Loss: 1458.160278 | MSE: 0.292281 | Time: 15.71 sec
+        Batch:   14 | Loss: 1300.684448 | MSE: 0.260783 | Time: 15.22 sec
+        Batch:   15 | Loss: 1298.716675 | MSE: 0.260384 | Time: 14.96 sec
+Iter: 9
+        Train:
+        Batch:    0 | Loss: 1198.964233 | MSE: 0.240440 | Time: 14.91 sec
+        Batch:    1 | Loss: 1220.337158 | MSE: 0.244714 | Time: 14.94 sec
+        Batch:    2 | Loss: 1284.459106 | MSE: 0.257539 | Time: 14.98 sec
+        Batch:    3 | Loss: 1259.324219 | MSE: 0.252512 | Time: 14.94 sec
+        Batch:    4 | Loss: 2069.175781 | MSE: 0.414486 | Time: 15.30 sec
+        Batch:    5 | Loss: 1484.519287 | MSE: 0.297551 | Time: 14.96 sec
+        Batch:    6 | Loss: 1980.566162 | MSE: 0.396773 | Time: 15.14 sec
+        Batch:    7 | Loss: 1061.282959 | MSE: 0.212921 | Time: 15.01 sec
+        Batch:    8 | Loss: 2193.281006 | MSE: 0.439320 | Time: 14.93 sec
+        Batch:    9 | Loss: 1229.303711 | MSE: 0.246533 | Time: 14.97 sec
+        Batch:   10 | Loss: 1728.836426 | MSE: 0.346438 | Time: 15.21 sec
+        Batch:   11 | Loss: 1208.181519 | MSE: 0.242302 | Time: 15.13 sec
+        Batch:   12 | Loss: 1333.332397 | MSE: 0.267317 | Time: 14.94 sec
+        Batch:   13 | Loss: 1190.480225 | MSE: 0.238745 | Time: 15.41 sec
+        Batch:   14 | Loss: 1377.769043 | MSE: 0.276210 | Time: 15.03 sec
+        Batch:   15 | Loss: 1366.546143 | MSE: 0.273961 | Time: 15.04 sec
+Iter: 10
+        Train:
+        Batch:    0 | Loss: 1103.658813 | MSE: 0.221376 | Time: 14.99 sec
+        Batch:    1 | Loss: 1351.357544 | MSE: 0.270909 | Time: 15.41 sec
+        Batch:    2 | Loss: 1227.309204 | MSE: 0.246097 | Time: 15.00 sec
+        Batch:    3 | Loss: 1176.617310 | MSE: 0.235958 | Time: 15.01 sec
+        Batch:    4 | Loss: 1168.616089 | MSE: 0.234357 | Time: 15.06 sec
+        Batch:    5 | Loss: 949.183960 | MSE: 0.190475 | Time: 15.17 sec
+        Batch:    6 | Loss: 988.963806 | MSE: 0.198430 | Time: 14.94 sec
+        Batch:    7 | Loss: 854.258057 | MSE: 0.171493 | Time: 14.98 sec
+        Batch:    8 | Loss: 1005.197998 | MSE: 0.201667 | Time: 14.99 sec
+        Batch:    9 | Loss: 973.739075 | MSE: 0.195371 | Time: 14.96 sec
+        Batch:   10 | Loss: 1015.410156 | MSE: 0.203708 | Time: 14.97 sec
+        Batch:   11 | Loss: 790.986511 | MSE: 0.158826 | Time: 14.94 sec
+        Batch:   12 | Loss: 1234.128296 | MSE: 0.247456 | Time: 14.94 sec
+        Batch:   13 | Loss: 1560.352905 | MSE: 0.312698 | Time: 15.04 sec
+        Batch:   14 | Loss: 1921.706177 | MSE: 0.384973 | Time: 14.93 sec
+        Batch:   15 | Loss: 1182.978760 | MSE: 0.237234 | Time: 14.98 sec
+Iter: 11
+        Train:
+        Batch:    0 | Loss: 1947.114380 | MSE: 0.390065 | Time: 14.96 sec
+        Batch:    1 | Loss: 1077.903442 | MSE: 0.216224 | Time: 14.89 sec
+        Batch:    2 | Loss: 1425.593994 | MSE: 0.285765 | Time: 15.26 sec
+        Batch:    3 | Loss: 1613.017578 | MSE: 0.323247 | Time: 14.98 sec
+        Batch:    4 | Loss: 1086.947388 | MSE: 0.218029 | Time: 14.99 sec
+        Batch:    5 | Loss: 1639.688354 | MSE: 0.328577 | Time: 14.97 sec
+        Batch:    6 | Loss: 1142.564087 | MSE: 0.229153 | Time: 14.91 sec
+        Batch:    7 | Loss: 1265.646973 | MSE: 0.253767 | Time: 15.01 sec
+        Batch:    8 | Loss: 1531.832275 | MSE: 0.307011 | Time: 14.96 sec
+        Batch:    9 | Loss: 878.284363 | MSE: 0.176290 | Time: 14.95 sec
+        Batch:   10 | Loss: 1178.073364 | MSE: 0.236246 | Time: 14.94 sec
+        Batch:   11 | Loss: 1146.624268 | MSE: 0.229957 | Time: 14.91 sec
+        Batch:   12 | Loss: 943.619995 | MSE: 0.189348 | Time: 15.00 sec
+        Batch:   13 | Loss: 1222.338501 | MSE: 0.245090 | Time: 14.94 sec
+        Batch:   14 | Loss: 1018.986694 | MSE: 0.204418 | Time: 14.96 sec
+        Batch:   15 | Loss: 671.180969 | MSE: 0.134851 | Time: 14.96 sec
+Iter: 12
+        Train:
+        Batch:    0 | Loss: 896.838867 | MSE: 0.179986 | Time: 14.93 sec
+        Batch:    1 | Loss: 781.105286 | MSE: 0.156839 | Time: 14.89 sec
+        Batch:    2 | Loss: 714.940125 | MSE: 0.143601 | Time: 14.99 sec
+        Batch:    3 | Loss: 880.650452 | MSE: 0.176739 | Time: 14.98 sec
+        Batch:    4 | Loss: 728.336792 | MSE: 0.146275 | Time: 15.01 sec
+        Batch:    5 | Loss: 504.387360 | MSE: 0.101491 | Time: 15.00 sec
+        Batch:    6 | Loss: 1170.998291 | MSE: 0.234820 | Time: 14.91 sec
+        Batch:    7 | Loss: 1328.972046 | MSE: 0.266415 | Time: 14.98 sec
+        Batch:    8 | Loss: 962.749451 | MSE: 0.193180 | Time: 14.93 sec
+        Batch:    9 | Loss: 2586.207764 | MSE: 0.517866 | Time: 15.00 sec
+        Batch:   10 | Loss: 1084.874390 | MSE: 0.217602 | Time: 14.95 sec
+        Batch:   11 | Loss: 1607.518555 | MSE: 0.322133 | Time: 14.97 sec
+        Batch:   12 | Loss: 1428.571899 | MSE: 0.286343 | Time: 14.99 sec
+        Batch:   13 | Loss: 960.782410 | MSE: 0.192782 | Time: 14.96 sec
+        Batch:   14 | Loss: 1270.950806 | MSE: 0.254810 | Time: 14.94 sec
+        Batch:   15 | Loss: 1186.096069 | MSE: 0.237837 | Time: 14.97 sec
+Iter: 13
+        Train:
+        Batch:    0 | Loss: 1093.634033 | MSE: 0.219350 | Time: 14.96 sec
+        Batch:    1 | Loss: 1313.777222 | MSE: 0.263377 | Time: 15.09 sec
+        Batch:    2 | Loss: 893.971680 | MSE: 0.179417 | Time: 15.03 sec
+        Batch:    3 | Loss: 1062.604370 | MSE: 0.213140 | Time: 15.04 sec
+        Batch:    4 | Loss: 1006.726074 | MSE: 0.201960 | Time: 14.96 sec
+        Batch:    5 | Loss: 973.834656 | MSE: 0.195390 | Time: 14.97 sec
+        Batch:    6 | Loss: 949.514526 | MSE: 0.190528 | Time: 14.94 sec
+        Batch:    7 | Loss: 657.202759 | MSE: 0.132062 | Time: 14.94 sec
+        Batch:    8 | Loss: 1166.780640 | MSE: 0.233973 | Time: 15.02 sec
+        Batch:    9 | Loss: 834.630859 | MSE: 0.167539 | Time: 15.10 sec
+        Batch:   10 | Loss: 1011.916626 | MSE: 0.202984 | Time: 16.49 sec
+        Batch:   11 | Loss: 473.437408 | MSE: 0.095282 | Time: 14.78 sec
+        Batch:   12 | Loss: 805.093567 | MSE: 0.161610 | Time: 14.80 sec
+        Batch:   13 | Loss: 991.023193 | MSE: 0.198802 | Time: 14.89 sec
+        Batch:   14 | Loss: 719.486572 | MSE: 0.144503 | Time: 15.01 sec
+        Batch:   15 | Loss: 1319.712646 | MSE: 0.264542 | Time: 14.84 sec
+Iter: 14
+        Train:
+        Batch:    0 | Loss: 567.689209 | MSE: 0.114146 | Time: 14.79 sec
+        Batch:    1 | Loss: 1182.775879 | MSE: 0.237165 | Time: 14.83 sec
+        Batch:    2 | Loss: 488.542572 | MSE: 0.098315 | Time: 14.80 sec
+        Batch:    3 | Loss: 846.250000 | MSE: 0.169854 | Time: 14.82 sec
+        Batch:    4 | Loss: 582.401123 | MSE: 0.117080 | Time: 14.81 sec
+        Batch:    5 | Loss: 613.499573 | MSE: 0.123304 | Time: 14.77 sec
+        Batch:    6 | Loss: 652.785034 | MSE: 0.131160 | Time: 14.77 sec
+        Batch:    7 | Loss: 450.567871 | MSE: 0.090717 | Time: 14.74 sec
+        Batch:    8 | Loss: 669.589844 | MSE: 0.134517 | Time: 14.81 sec
+        Batch:    9 | Loss: 439.040436 | MSE: 0.088400 | Time: 14.81 sec
+        Batch:   10 | Loss: 1044.164551 | MSE: 0.209423 | Time: 15.26 sec
+        Batch:   11 | Loss: 1085.718262 | MSE: 0.217724 | Time: 14.86 sec
+        Batch:   12 | Loss: 841.373047 | MSE: 0.168860 | Time: 14.82 sec
+        Batch:   13 | Loss: 1605.111938 | MSE: 0.321598 | Time: 14.84 sec
+        Batch:   14 | Loss: 521.628418 | MSE: 0.104908 | Time: 14.83 sec
+        Batch:   15 | Loss: 1382.683716 | MSE: 0.277130 | Time: 14.73 sec
+Iter: 15
+        Train:
+        Batch:    0 | Loss: 895.553711 | MSE: 0.179712 | Time: 14.68 sec
+        Batch:    1 | Loss: 998.306091 | MSE: 0.200265 | Time: 14.76 sec
+        Batch:    2 | Loss: 1226.864746 | MSE: 0.245978 | Time: 14.78 sec
+        Batch:    3 | Loss: 675.604858 | MSE: 0.135720 | Time: 14.81 sec
+        Batch:    4 | Loss: 1103.082764 | MSE: 0.221204 | Time: 14.79 sec
+        Batch:    5 | Loss: 483.808960 | MSE: 0.097340 | Time: 14.82 sec
+        Batch:    6 | Loss: 1229.045532 | MSE: 0.246388 | Time: 14.82 sec
+        Batch:    7 | Loss: 700.624390 | MSE: 0.140699 | Time: 14.76 sec
+        Batch:    8 | Loss: 871.842285 | MSE: 0.174948 | Time: 14.77 sec
+        Batch:    9 | Loss: 560.344727 | MSE: 0.112655 | Time: 14.85 sec
+        Batch:   10 | Loss: 906.607544 | MSE: 0.181911 | Time: 14.84 sec
+        Batch:   11 | Loss: 414.968048 | MSE: 0.083584 | Time: 14.85 sec
+        Batch:   12 | Loss: 668.113647 | MSE: 0.134207 | Time: 14.76 sec
+        Batch:   13 | Loss: 516.459656 | MSE: 0.103873 | Time: 14.81 sec
+        Batch:   14 | Loss: 849.628723 | MSE: 0.170484 | Time: 14.78 sec
+        Batch:   15 | Loss: 393.980499 | MSE: 0.079360 | Time: 14.81 sec
+Iter: 16
+        Train:
+        Batch:    0 | Loss: 661.912292 | MSE: 0.132948 | Time: 14.83 sec
+        Batch:    1 | Loss: 432.576843 | MSE: 0.087080 | Time: 15.05 sec
+        Batch:    2 | Loss: 650.168518 | MSE: 0.130593 | Time: 14.81 sec
+        Batch:    3 | Loss: 538.980103 | MSE: 0.108368 | Time: 14.77 sec
+        Batch:    4 | Loss: 344.135559 | MSE: 0.069404 | Time: 14.81 sec
+        Batch:    5 | Loss: 607.883667 | MSE: 0.122158 | Time: 14.86 sec
+        Batch:    6 | Loss: 322.440277 | MSE: 0.065072 | Time: 14.86 sec
+        Batch:    7 | Loss: 500.860260 | MSE: 0.100756 | Time: 14.78 sec
+        Batch:    8 | Loss: 391.996887 | MSE: 0.078981 | Time: 14.82 sec
+        Batch:    9 | Loss: 364.152374 | MSE: 0.073410 | Time: 15.27 sec
+        Batch:   10 | Loss: 326.569122 | MSE: 0.065878 | Time: 14.78 sec
+        Batch:   11 | Loss: 402.870483 | MSE: 0.081133 | Time: 14.81 sec
+        Batch:   12 | Loss: 377.171448 | MSE: 0.075998 | Time: 14.86 sec
+        Batch:   13 | Loss: 418.692810 | MSE: 0.084306 | Time: 14.80 sec
+        Batch:   14 | Loss: 479.193054 | MSE: 0.096403 | Time: 16.39 sec
+        Batch:   15 | Loss: 676.443604 | MSE: 0.135862 | Time: 17.83 sec
+Iter: 17
+        Train:
+        Batch:    0 | Loss: 677.730225 | MSE: 0.136127 | Time: 16.42 sec
+        Batch:    1 | Loss: 243.668610 | MSE: 0.049293 | Time: 16.65 sec
+        Batch:    2 | Loss: 454.086456 | MSE: 0.091373 | Time: 17.08 sec
+        Batch:    3 | Loss: 509.254059 | MSE: 0.102414 | Time: 15.35 sec
+        Batch:    4 | Loss: 451.988861 | MSE: 0.090943 | Time: 15.25 sec
+        Batch:    5 | Loss: 693.885925 | MSE: 0.139315 | Time: 15.24 sec
+        Batch:    6 | Loss: 380.839050 | MSE: 0.076708 | Time: 15.24 sec
+        Batch:    7 | Loss: 715.365906 | MSE: 0.143624 | Time: 15.23 sec
+        Batch:    8 | Loss: 786.034424 | MSE: 0.157744 | Time: 16.10 sec
+        Batch:    9 | Loss: 281.726013 | MSE: 0.056886 | Time: 15.27 sec
+        Batch:   10 | Loss: 706.091370 | MSE: 0.141773 | Time: 15.17 sec
+        Batch:   11 | Loss: 510.385620 | MSE: 0.102636 | Time: 15.25 sec
+        Batch:   12 | Loss: 315.690430 | MSE: 0.063693 | Time: 15.47 sec
+        Batch:   13 | Loss: 257.829681 | MSE: 0.052117 | Time: 15.15 sec
+        Batch:   14 | Loss: 292.288849 | MSE: 0.059006 | Time: 15.45 sec
+        Batch:   15 | Loss: 226.185577 | MSE: 0.045772 | Time: 15.13 sec
+Iter: 18
+        Train:
+        Batch:    0 | Loss: 288.868134 | MSE: 0.058324 | Time: 15.07 sec
+        Batch:    1 | Loss: 377.328552 | MSE: 0.076014 | Time: 15.24 sec
+        Batch:    2 | Loss: 669.422424 | MSE: 0.134435 | Time: 15.27 sec
+        Batch:    3 | Loss: 735.025146 | MSE: 0.147562 | Time: 15.45 sec
+        Batch:    4 | Loss: 341.105743 | MSE: 0.068773 | Time: 15.27 sec
+        Batch:    5 | Loss: 384.689301 | MSE: 0.077485 | Time: 15.18 sec
+        Batch:    6 | Loss: 676.970459 | MSE: 0.135947 | Time: 15.15 sec
+        Batch:    7 | Loss: 349.901306 | MSE: 0.070522 | Time: 15.26 sec
+        Batch:    8 | Loss: 694.887329 | MSE: 0.139524 | Time: 15.20 sec
+        Batch:    9 | Loss: 846.237305 | MSE: 0.169784 | Time: 15.21 sec
+        Batch:   10 | Loss: 392.836487 | MSE: 0.079092 | Time: 15.24 sec
+        Batch:   11 | Loss: 855.153687 | MSE: 0.171544 | Time: 15.14 sec
+        Batch:   12 | Loss: 433.720184 | MSE: 0.087249 | Time: 15.11 sec
+        Batch:   13 | Loss: 849.431641 | MSE: 0.170401 | Time: 15.19 sec
+        Batch:   14 | Loss: 309.579956 | MSE: 0.062423 | Time: 15.21 sec
+        Batch:   15 | Loss: 1182.651123 | MSE: 0.237033 | Time: 15.34 sec
+Iter: 19
+        Train:
+        Batch:    0 | Loss: 372.088684 | MSE: 0.074921 | Time: 15.44 sec
+        Batch:    1 | Loss: 694.075378 | MSE: 0.139325 | Time: 15.14 sec
+        Batch:    2 | Loss: 340.612549 | MSE: 0.068647 | Time: 15.28 sec
+        Batch:    3 | Loss: 474.103027 | MSE: 0.095346 | Time: 15.18 sec
+        Batch:    4 | Loss: 399.332916 | MSE: 0.080392 | Time: 15.12 sec
+        Batch:    5 | Loss: 451.217438 | MSE: 0.090764 | Time: 15.20 sec
+        Batch:    6 | Loss: 918.400696 | MSE: 0.184190 | Time: 15.21 sec
+        Batch:    7 | Loss: 421.464722 | MSE: 0.084821 | Time: 15.23 sec
+        Batch:    8 | Loss: 447.507355 | MSE: 0.090020 | Time: 15.14 sec
+        Batch:    9 | Loss: 498.427795 | MSE: 0.100206 | Time: 15.36 sec
+        Batch:   10 | Loss: 265.661652 | MSE: 0.053661 | Time: 15.24 sec
+        Batch:   11 | Loss: 383.551514 | MSE: 0.077230 | Time: 15.41 sec
+        Batch:   12 | Loss: 196.024445 | MSE: 0.039717 | Time: 15.17 sec
+        Batch:   13 | Loss: 381.500519 | MSE: 0.076825 | Time: 15.31 sec
+        Batch:   14 | Loss: 469.770599 | MSE: 0.094485 | Time: 15.17 sec
+        Batch:   15 | Loss: 287.533875 | MSE: 0.058043 | Time: 15.12 sec
